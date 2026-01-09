@@ -3,57 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playbook-P5-TM5</title>
+    <title>Playbook-P5-TM6</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        /* Estilos básicos para asegurar visualización si style.css no carga */
-        body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; transition: background-color 0.3s, color 0.3s; }
-        header { background-color: #2c3e50; color: white; padding: 1rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        .main-container { display: flex; min-height: 100vh; }
-        .activity-list { width: 250px; background-color: #f4f4f4; padding: 1rem; border-right: 1px solid #ddd; position: sticky; top: 60px; height: calc(100vh - 60px); overflow-y: auto; }
-        .activity-list h2 { font-size: 1.2rem; margin-bottom: 1rem; }
-        .activity-list ul { list-style: none; padding: 0; }
-        .activity-list li { margin-bottom: 0.5rem; }
-        .activity-list a { text-decoration: none; color: #34495e; display: block; padding: 0.5rem; border-radius: 4px; transition: background 0.2s; }
-        .activity-list a:hover { background-color: #dfe6e9; }
-        .content { flex: 1; padding: 2rem; max-width: 1000px; margin: 0 auto; }
-        .activity-card { background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 2rem; margin-bottom: 2rem; border-left: 5px solid #3498db; }
-        .activity-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 2px solid #eee; padding-bottom: 0.5rem; }
-        .timer-container, .activity-timer { background: #edf2f7; padding: 0.5rem 1rem; border-radius: 20px; font-weight: bold; display: flex; align-items: center; gap: 10px; }
-        .timer-start-btn, button { background: #3498db; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; transition: background 0.2s; }
-        .timer-start-btn:hover, button:hover { background: #2980b9; }
-        .roles-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
-        .role-card { padding: 1rem; border-radius: 8px; border: 1px solid #eee; }
-        .role-teacher { background-color: #fff5f5; border-top: 4px solid #e53e3e; }
-        .role-xolo { background-color: #f0fff4; border-top: 4px solid #38a169; }
-        .role-student { background-color: #ebf8ff; border-top: 4px solid #3182ce; }
-        .slide-reference { background: #f8f9fa; border: 1px dashed #ccc; padding: 1.5rem; margin-top: 1.5rem; border-radius: 8px; }
-        .prompt-box { background: #2d3436; color: #fab1a0; padding: 1rem; border-radius: 5px; font-family: monospace; position: relative; margin: 1rem 0; }
-        .copy-btn { position: absolute; top: 5px; right: 5px; font-size: 0.8rem; background: #636e72; }
-        .highlight-text { font-weight: bold; color: #2c3e50; font-size: 1.1rem; }
-        .essentials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-        .essential-card { background: #f1f2f6; padding: 1rem; border-radius: 8px; text-align: center; }
-        .essential-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-        .troubleshooting-list ul { padding-left: 1.2rem; }
-        .troubleshooting-list li { margin-bottom: 0.5rem; }
-        .collapsible-button { width: 100%; text-align: left; padding: 10px; background: #eee; border: none; cursor: pointer; font-weight: bold; }
-        .collapsible-content { display: none; padding: 1rem; border: 1px solid #eee; border-top: none; }
-        .xolo-status { font-weight: bold; display: inline-block; padding: 2px 8px; border-radius: 4px; margin-bottom: 10px; }
-        .challenge-prompt { background: #fff4e6; border: 2px solid #ffd8a8; padding: 1rem; border-radius: 8px; margin-top: 1rem; }
-        .tps-structure { display: flex; flex-direction: column; gap: 1rem; }
-        .tps-phase { border-left: 3px solid #3498db; padding-left: 1rem; }
-        pre { white-space: pre-wrap; word-wrap: break-word; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1><span class="book-icon">📋</span> <strong>Playbook: Misión 5 - 5o de Primaria</strong></h1>
+        <h1><span class="book-icon">📋</span> <strong>Playbook: Misión 6 - 5o de Primaria</strong></h1>
         <div class="header-widgets">
             <div class="timer-container">
                 <span id="global-timer">⏱️ 40:00</span>
                 <button id="global-start-stop">Start</button>
                 <button id="global-reset">Reset</button>
+            </div>
+            <div class="theme-toggle">
+                <i class="fas fa-sun"></i>
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle-input">
+                    <span class="slider round"></span>
+                </label>
+                <i class="fas fa-moon"></i>
             </div>
         </div>
     </header>
@@ -61,12 +31,12 @@
         <aside class="activity-list">
             <h2>Actividades</h2>
             <ul>
-                <li><a href="#activity-0">📝 De un Vistazo</a></li>
-                <li><a href="#activity-1">1. Intro</a></li>
-                <li><a href="#activity-2">2. A.I. Gym</a></li>
-                <li><a href="#activity-3">3. Brain Spark</a></li>
-                <li><a href="#activity-4">4. Compartir</a></li>
-                <li><a href="#activity-5">5. Evidencias</a></li>
+                <li><a href="#activity-0">📝</a></li>
+                <li><a href="#activity-1">1</a></li>
+                <li><a href="#activity-2">2</a></li>
+                <li><a href="#activity-3">3</a></li>
+                <li><a href="#activity-4">4</a></li>
+                <li><a href="#activity-5">5</a></li>
             </ul>
         </aside>
         <main class="content">
@@ -81,7 +51,7 @@
                 <div class="command-section">
                     <h3>🎯 Objetivo de Aprendizaje</h3>
                     <div class="objective-box">
-                        <p><strong>Los estudiantes podrán:</strong> usar el Micro:Bit y el Kit Nezha Pro para controlar un servomotor por ángulos y comprender la precisión y seguridad de los actuadores.</p>
+                        <p><strong>Los estudiantes podrán:</strong> usar el Micro:Bit + Kit Nezha Pro para armar y controlar un servo motor con precisión angular y comprender la importancia de la consistencia y la seguridad mecánica.</p>
                     </div>
                 </div>
                 <div class="command-section xolo-prompt">
@@ -89,8 +59,11 @@
                     <div class="prompt-box">
                         <div class="prompt-header">
                             <span class="prompt-label">⚠️ NOTA: XOLO ya conoce el tema de esta misión. Este prompt es SOLO de referencia en caso de emergencia técnica:</span>
+                            <button class="copy-btn" onclick="copyPrompt('main-prompt')">
+                                <i class="fas fa-copy"></i> Copiar
+                            </button>
                         </div>
-                        <pre id="main-prompt">Explícame qué es un servomotor y cómo se diferencia de un motor continuo. Enséñame cómo un servo controla ángulos y por qué un pequeño error puede causar fallos en robots reales. Luego ayúdame a diseñar un mecanismo simple de barrera o señalador con 1 servo: qué debe hacer, qué ángulos usar (0, 90, 180) y cómo asegurar que el movimiento sea seguro.</pre>
+                        <pre id="main-prompt">“Ayúdame a construir el mecanismo con servo y asegurar que nada se trabe. Luego guíame para implementar el GCS que mueve el servo a 0°, 90° y 180°. Enséñame cómo probar repetición, detectar si vibra, si se atora o si el ángulo real no coincide, y cómo ajustar el diseño o el código.”</pre>
                     </div>
                 </div>
                 <div class="command-section">
@@ -99,17 +72,17 @@
                         <div class="essential-card">
                             <div class="essential-icon">🎓</div>
                             <h4>Concepto Clave</h4>
-                            <p>Actuadores: Son las partes de un robot que permiten que se mueva o haga algo físico, como si fueran sus músculos.</p>
+                            <p>Precisión y Seguridad: Es como cuando lanzas una pelota; la precisión es lograr que caiga siempre en el mismo lugar, y la seguridad es cuidar que el brazo del robot no se golpee ni se fuerce.</p>
                         </div>
                         <div class="essential-card">
                             <div class="essential-icon">🔧</div>
                             <h4>Habilidad Técnica</h4>
-                            <p>Usar el servomotor para mover una pieza a ángulos exactos como 0, 90 o 180 grados.</p>
+                            <p>Usar el servo motor para mover piezas en ángulos específicos (0°, 90° y 180°).</p>
                         </div>
                         <div class="essential-card">
                             <div class="essential-icon">🧪</div>
                             <h4>Experimentación</h4>
-                            <p>Probar con diferentes ángulos y velocidades de movimiento para entender la precisión del servo.</p>
+                            <p>Probar con diferentes ángulos y velocidades para entender limitaciones.</p>
                         </div>
                         <div class="essential-card">
                             <div class="essential-icon">💬</div>
@@ -123,15 +96,13 @@
                     <div class="materials-checklist">
                         <label><input type="checkbox"> Proyector/pantalla + presentación (5 diapositivas)</label>
                         <label><input type="checkbox"> Internet estable + Gnius Space con XOLO activo</label>
-                        <label><input type="checkbox"> Micro:Bit (1 por cada 4 estudiantes)</label>
-                        <label><input type="checkbox"> Kit Nezha Pro (1 por cada 4 estudiantes)</label>
-                        <label><input type="checkbox"> Acceso a MakeCode (https://makecode.microbit.org/) con extensión Nezha Pro instalada</label>
-                        <label><input type="checkbox"> Cables de conexión para servos</label>
-                        <label><input type="checkbox"> Piezas de construcción del kit para la barrera</label>
+                        <label><input type="checkbox"> Micro:Bit + Kit Nezha Pro (1 por cada 4 estudiantes)</label>
+                        <label><input type="checkbox"> Acceso a MakeCode (https://makecode.microbit.org/) con extensión Nezha instalada</label>
+                        <label><input type="checkbox"> Cables de conexión RJ11</label><br><label><input type="checkbox"> Servomotor</label>
                         <label><input type="checkbox"> ⚠️ Esta misión usa programación con BLOQUES en MakeCode</label>
                         <label><input type="checkbox"> 📋 Para agregar extensión: En MakeCode → Extensiones → Buscar 'Nezha' → Agregar</label>
                     </div>
-                    <p class="care-reminder"><strong>🛡️ Cuidado del equipo:</strong> Recuerda: Manipular el servomotor con cuidado, no forzar el giro manualmente y verificar que los cables estén bien conectados al puerto S1.</p>
+                    <p class="care-reminder"><strong>🛡️ Cuidado del equipo:</strong> Manipular con delicadeza, no forzar el servo con la mano, verificar que los cables estén bien conectados y no mojar los componentes.</p>
                 </div>
                 <div class="command-section">
                     <h3>🗓️ Secuencia de la Misión (40 min)</h3>
@@ -149,7 +120,7 @@
                             <div class="timeline-content">
                                 <strong>A.I. Gym</strong>
                                 <span class="time-badge">8 min</span>
-                                <p>Los estudiantes abren el chat con XOLO y aprenden sobre los servomotor y cómo controlarlos con precisión (sin prompt específico).</p>
+                                <p>Los estudiantes abren el chat con XOLO y aprenden sobre la precisión y el control de servos (sin prompt específico).</p>
                             </div>
                         </div>
                         <div class="timeline-item">
@@ -183,9 +154,7 @@
                     <div class="troubleshooting-list">
                         <ul>
                             <li><strong>Si los alumnos no pueden ingresar a Gnius Space:</strong> Activa XOLO SOS en <a href="https://xolo.gnius.club" target="_blank">xolo.gnius.club</a> para continuar la misión sin interrumpir la clase.</li>
-                            <li><strong>Si el servomotor no se mueve:</strong> Verificar que esté conectado correctamente al puerto S1 y que la batería del Kit Nezha esté encendida.</li>
-                            <li><strong>Si el movimiento es errático:</strong> Revisar que los bloques de ángulo en MakeCode estén dentro del rango 0-180.</li>
-                            <li><strong>Si hay errores en el código:</strong> Recordar a los estudiantes que XOLO puede ayudar a depurar. Pídeles que copien el error y se lo muestren a XOLO.</li>
+                            <li><strong>Si el servo no se mueve:</strong> Verificar que esté conectado al puerto correcto en el Kit Nezha (S1, S2, etc.) y que la batería esté encendida.</li><li><strong>Si el servo hace un ruido extraño:</strong> Puede estar forzado. Revisa que el mecanismo no esté trabado físicamente.</li><li><strong>Si hay errores en el código:</strong> Recordar a los estudiantes que XOLO puede ayudar a depurar. Pídeles que copien el error y se lo muestren a XOLO.</li>
                         </ul>
                     </div>
                 </div>
@@ -206,14 +175,14 @@
                             <li>Dar la bienvenida con energía.</li>
                             <li>Pedir a los alumnos que ingresen a Gnius Space.</li>
                             <li>Proyecta diapositiva 1 con el I Can Statement.</li>
-                            <li>Motiva: "¡Hoy le daremos movimiento preciso a sus creaciones con servomotores!".</li>
+                            <li>Motiva: "¡Hoy le daremos movimiento exacto a sus creaciones con el Kit Nezha!".</li>
                         </ul>
                     </div>
                     <div class="role-card role-xolo">
                         <h4>🤖 Rol de XOLO</h4>
                         <ul>
                             <li>XOLO ya está listo y conoce a cada estudiante.</li>
-                            <li>Sabe que hoy toca aprender sobre Actuadores y Servomotores.</li>
+                            <li>Sabe que hoy toca aprender sobre Control de servos y precisión mecánica.</li>
                         </ul>
                     </div>
                     <div class="role-card role-student">
@@ -229,8 +198,8 @@
                     <h4>📊 Diapositiva 1: I Can Statement</h4>
                     <div class="slide-content">
                         <p><strong>🎯 Hoy seré capaz de:</strong></p>
-                        <p class="highlight-text">🤖 A controlar un servomotor para que mueva una barrera con precisión total.</p>
-                        <p><strong>Aplicación real:</strong> Los ingenieros en fábricas automatizadas usan servomotores para mover brazos robóticos con exactitud milimétrica.</p>
+                        <p class="highlight-text">🤖 A controlar un servo motor para que se mueva exactamente a los ángulos que tú decidas.</p>
+                        <p><strong>Aplicación real:</strong> Los brazos robóticos en las fábricas de autos usan esta tecnología para colocar piezas con una precisión milimétrica sin cansarse.</p>
                         <p><strong>Tu aliado:</strong> XOLO ya sabe qué vas a aprender hoy. ¡Solo abre el chat y comienza!</p>
                     </div>
                 </div>
@@ -259,8 +228,8 @@
                         <p class="xolo-status">✅ XOLO ACTIVO</p>
                         <ul>
                             <li>Reconoce al estudiante y sus preferencias de aprendizaje.</li>
-                            <li>Explica cómo un servomotor puede girar a ángulos específicos a diferencia de un motor normal.</li>
-                            <li>Introduce el concepto de actuadores y por qué la precisión es vital en la robótica.</li>
+                            <li>Explica cómo funciona el control de ángulos en un servo motor.</li>
+                            <li>Introduce el concepto de precisión y seguridad mecánica.</li>
                             <li>Responde dudas sobre los conceptos.</li>
                         </ul>
                     </div>
@@ -268,8 +237,8 @@
                         <h4>👦 Rol del Alumno</h4>
                         <ul>
                             <li>Abrir el chat con XOLO y saludarlo.</li>
-                            <li>Aprender a usar el servomotor S1 para controlar movimientos por ángulos.</li>
-                            <li>Aprender sobre la seguridad mecánica y el impacto de los errores físicos.</li>
+                            <li>Aprender a usar el servo motor para realizar movimientos angulares.</li>
+                            <li>Aprender sobre la importancia de la consistencia en los movimientos.</li>
                             <li>Despejar todas sus dudas preguntando a XOLO.</li>
                         </ul>
                     </div>
@@ -282,14 +251,14 @@
                             <pre>"¡Hola XOLO! Estoy listo para aprender."</pre>
                         </div>
                         <p class="highlight-text" style="margin-top: 1rem;">✨ XOLO ya sabe quién eres y qué tema toca hoy. ¡Solo empieza a conversar!</p>
-                        <p class="highlight-text">🎯 Objetivo: Aprender a usar el servomotor para crear movimientos exactos y entender los actuadores.</p>
+                        <p class="highlight-text">🎯 Objetivo: Aprender a usar el servo motor para mover piezas con precisión y seguridad.</p>
                     </div>
                 </div>
                 
                 <div class="optional-script">
-                    <button class="collapsible-button" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">📖 Ver guion detallado (opcional)</button>
+                    <button class="collapsible-button">📖 Ver guion detallado (opcional)</button>
                     <div class="collapsible-content">
-                        <p class="dialogue assistant">¡Hola a todos! Ahora vamos a descubrir cómo darle 'músculos' inteligentes a nuestros proyectos. Abran su chat con XOLO y denle un gran saludo. XOLO ya los conoce y sabe exactamente qué les va a enseñar hoy sobre los servomotores y cómo funcionan como actuadores. No necesitan escribir un prompt especial, solo empiecen a platicar con él. Pregúntenle cómo es que un servo sabe exactamente en qué ángulo detenerse y por qué eso es tan importante para que un robot no se rompa. ¡Aprovechen para despejar todas sus dudas con su guía digital!</p>
+                        <p class="dialogue assistant">¡Hola a todos! Ahora vamos a aprender algo increíble: cómo darle vida y movimiento preciso a nuestros robots. Abran su chat con XOLO y denle un gran saludo. XOLO ya los conoce y sabe exactamente qué les va a enseñar hoy sobre los servos y la precisión. No necesitan escribir un prompt especial, solo empiecen a platicar con él. Pregúntenle cómo lograr que el servo se mueva a 90 grados o qué hacer para que no se trabe. ¡XOLO es su guía experto, así que no se queden con ninguna duda!</p>
                     </div>
                 </div>
             </div>
@@ -316,7 +285,7 @@
                         <h4>🤖 Rol de XOLO</h4>
                         <p class="xolo-status">✅ XOLO ACTIVO</p>
                         <ul>
-                            <li>Ayuda a desarrollar una idea y un VIBE que aplique el control de servomotores para una barrera guardiana.</li>
+                            <li>Ayuda a desarrollar una idea y un VIBE que aplique movimiento suave y exacto.</li>
                             <li>Entrega el GCS de la idea del genio.</li>
                             <li>Resuelve errores de sintaxis o lógica.</li>
                         </ul>
@@ -324,10 +293,10 @@
                     <div class="role-card role-student">
                         <h4>👦 Rol del Alumno</h4>
                         <ul>
-                            <li>Trabajar con XOLO una idea y un VIBE para usar el servomotor como una barrera de seguridad.</li>
+                            <li>Trabajar con XOLO una idea y un VIBE para usar el servo motor con fluidez.</li>
                             <li>Traducir el GCS de XOLO a bloques en MakeCode.</li>
                             <li>Depurar su programa con XOLO si hay errores.</li>
-                            <li>Conectar el servomotor al puerto S1 de la Micro:Bit y probar el movimiento.</li>
+                            <li>Conectar el servo al Kit Nezha y probar.</li>
                         </ul>
                     </div>
                 </div>
@@ -336,29 +305,29 @@
                     <div class="slide-content">
                         <p><strong>1. 💬 Pide a XOLO que te ayude a crear:</strong></p>
                         <div class="prompt-box">
-                            <pre>"Xolo, ayúdame a idear un proyecto de mecanismo con servo usando Python. Mi vibe: ‘robot guardián que levanta una barrera cuando alguien se acerca’. Ayúdame a definir cuándo se activa, qué ángulos usa y cómo se ve el movimiento. Después conviértelo en GCS y dame el código en Python para ejecutarlo, de acuerdo a tu entrenamiento con el robot XGO y Micro:bit."</pre>
+                            <pre>"Xolo, ayúdame a idear mejoras para que mi mecanismo sea más fluido y confiable usando Python. Mi vibe: ‘movimiento suave y exacto’. Dame ideas de mejora (pausas, ángulos intermedios, velocidad) y conviértelo en un GCS + código Python, según tu entrenamiento con el robot XGO y Micro:bit."</pre>
                         </div>
                         <p style="margin-top: 1.5rem;"><strong>2. 🔬 Experimenta y descubre con tu programa:</strong></p>
                         <ul>
-                            <li>¿El servomotor se mueve exactamente a los ángulos que programaste en MakeCode?</li>
-                            <li>¿Qué sucede si intentas mover el servo a un ángulo fuera del rango de 0 a 180 grados?</li>
-                            <li>¿Funciona igual de rápido el movimiento si cambias el tiempo de espera entre ángulos?</li>
-                            <li>¿Por qué es importante la precisión del servo para evitar que la barrera choque con la estructura física?</li>
-                            <li>Si el servo es el actuador, ¿qué parte del sistema crees que actúa como el 'cerebro' que le da las órdenes?</li>
+                            <li>¿El servo llega exactamente a los ángulos de 0, 90 y 180 grados?</li>
+                            <li>¿Qué pasa si intentas mover el servo más allá de sus límites físicos?</li>
+                            <li>¿El movimiento es igual de fluido cuando usas pausas cortas vs pausas largas?</li>
+                            <li>¿Por qué es importante que el robot repita el movimiento siempre igual para ser considerado preciso?</li>
+                            <li>¿Qué medidas de seguridad mecánica aplicaste para que el servo no se forzara o se trabara?</li>
                         </ul>
                     </div>
                 </div>
                 <div class="optional-script">
-                    <button class="collapsible-button" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">📖 Ver guion detallado (opcional)</button>
+                    <button class="collapsible-button">📖 Ver guion detallado (opcional)</button>
                     <div class="collapsible-content">
-                        <p class="dialogue assistant">¡Es hora de crear, genios! Vamos a pasar de la teoría a la acción. El flujo de hoy es emocionante: primero ideen con XOLO su proyecto, definan ese 'VIBE' de robot guardián, y obtengan su GCS. Por ejemplo, podrían diseñar una barrera que se levante majestuosamente cuando alguien se acerque. Una vez que tengan el código, pásenlo a bloques en MakeCode y pruebenlo. No olviden las preguntas de experimentación: ¿qué pasa si el ángulo no es el correcto? Cuando su simulador funcione, les entregaré el hardware para que lo vean cobrar vida. Recuerden manipular los servos con delicadeza. Si tienen errores o dudas, pregúntenle a XOLO, él los ayudará a depurar su código en un instante.</p>
+                        <p class="dialogue assistant">¡Es hora de crear algo asombroso! Vamos a usar todo lo que aprendimos con XOLO para idear un proyecto con movimiento fluido. El flujo es sencillo: platiquen su idea con XOLO, definan el VIBE de 'movimiento suave', obtengan su GCS y pásenlo a bloques en MakeCode. Por ejemplo, podrían crear una barrera de estacionamiento automática o un brazo que saluda con elegancia. Prueben primero en el simulador y luego con su Kit Nezha real. Si tienen errores o dudas, pregúntenle a XOLO, él los ayudará a depurar su código para que todo funcione perfecto. ¡A experimentar!</p>
                     </div>
                 </div>
                 <div class="challenge-prompt">
                     <h4>🚀 Prompt de Desafío (para quienes terminen rápido)</h4>
                     <div class="prompt-box">
                         <p><strong>Si ya experimentaste con todo, pregunta a XOLO:</strong></p>
-                        <p class="challenge-text">"Ya probé con la barrera básica. ¿Puedes enseñarme cómo hacer que mi servomotor se mueva más lento para que la barrera parezca más realista y segura?"</p>
+                        <p class="challenge-text">"Ya probé con los movimientos básicos. ¿Puedes enseñarme cómo hacer que mi servo se mueva más lento para que el movimiento se vea más natural y profesional?"</p>
                     </div>
                 </div>
             </div>
@@ -392,7 +361,7 @@
                         <h4>👦 Rol del Alumno</h4>
                         <ul>
                             <li>Demuestra su programa funcionando a otra pareja.</li>
-                            <li>Explica qué ángulos y movimientos funcionaron bien en su barrera.</li>
+                            <li>Explica qué ángulos y movimientos funcionaron bien.</li>
                             <li>Comparte un descubrimiento interesante.</li>
                             <li>Da retroalimentación positiva al compañero.</li>
                         </ul>
@@ -403,12 +372,12 @@
                     <div class="slide-content tps-structure">
                         <div class="tps-phase">
                             <h4>🤔 THINK (30 seg)</h4>
-                            <p>Reflexión individual: ¿Qué ángulos movieron mejor tu servomotor? ¿Qué te sorprendió del movimiento físico?</p>
+                            <p>Reflexión individual: ¿Qué ángulos de movimiento realizó mejor tu servo? ¿Qué te sorprendió?</p>
                         </div>
                         <div class="tps-phase">
                             <h4>👥 PAIR (2 min)</h4>
                             <p>Con otra pareja: Demuestren su programa y expliquen su experiencia</p>
-                            <p class="highlight-text">Frase guía: "Mi servomotor movió la barrera a 90 grados. Me sorprendió que el movimiento fuera tan exacto comparado con un motor normal."</p>
+                            <p class="highlight-text">Frase guía: "Mi servo se movió con precisión entre los ángulos de 0 y 180. Me sorprendió que si no ponía pausas, el movimiento se veía muy brusco."</p>
                         </div>
                         <div class="tps-phase">
                             <h4>💬 SHARE (2 min)</h4>
@@ -467,26 +436,6 @@
             </div>
         </main>
     </div>
-    <script>
-        // Funcionalidad básica de timers
-        document.querySelectorAll('.timer-start-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                let duration = parseInt(this.dataset.duration);
-                let display = this.previousElementSibling;
-                let timer = duration, minutes, seconds;
-                let interval = setInterval(function () {
-                    minutes = parseInt(timer / 60, 10);
-                    seconds = parseInt(timer % 60, 10);
-                    minutes = minutes < 10 ? "0" + minutes : minutes;
-                    seconds = seconds < 10 ? "0" + seconds : seconds;
-                    display.textContent = "⏱️ " + minutes + ":" + seconds;
-                    if (--timer < 0) {
-                        clearInterval(interval);
-                        display.textContent = "✅ ¡Tiempo!";
-                    }
-                }, 1000);
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
-</html></html>
+</html>
